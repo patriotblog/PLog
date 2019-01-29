@@ -34,12 +34,19 @@ class PLogSend
         return $this;
     }
 
+    /**
+     * @param $message string
+     * @param null|string $receiver
+     * @return bool
+     */
     public static function Send($message, $receiver=null){
 
         $model = new self($message, $receiver);
         return $model->execute();
     }
-    public function execute(){
+
+
+    private function execute(){
 
         $telegram = new PTelegramRequest();
 
@@ -59,7 +66,6 @@ class PLogSend
         $response = $this->request($params);
         return $this->response($response);
     }
-
     private function checkConfig(){
         $config_path = dirname(__FILE__).'/config.php';
         if(!file_exists($config_path)){

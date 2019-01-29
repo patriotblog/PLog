@@ -10,7 +10,7 @@ include dirname(__FILE__).'/../PLog/Autoloader.php';
 
 use PLog\PLogSend;
 
-$model = PLogSend::Send('eLogs', 'salam');
+$model = PLogSend::Send('salam', 'eLogs');
 
 var_dump($model);
 ?>
