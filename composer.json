@@ -1,0 +1,13 @@
+{
+    "name": "patriotblog/plog",
+    "description": "Telegram Log WebService",
+    "type": "library",
+    "authors": [
+        {
+            "name": "patriot",
+            "email": "taebi.ali@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
