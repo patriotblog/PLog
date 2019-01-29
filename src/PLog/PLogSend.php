@@ -16,6 +16,8 @@ class PLogSend
 
     function __construct($message, $receiver=null){
 
+        $this->checkConfig();
+
         if(empty($receiver)){
             if(empty($this->defaultReceiver)){
                 throw new \Exception("there is no default Receiver in config file");
@@ -27,7 +29,7 @@ class PLogSend
         $this->receiver = $receiver;
         $this->message = $message;
 
-        $this->checkConfig();
+
 
         return $this;
     }
