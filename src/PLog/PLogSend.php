@@ -10,10 +10,20 @@ class PLogSend
 
     protected $username;
     protected $password;
+    protected $defaultReceiver;
 
 
 
-    function __construct($receiver, $message){
+    function __construct($message, $receiver=null){
+
+        if(empty($receiver)){
+            if(empty($this->defaultReceiver)){
+                throw new \Exception("there is no default Receiver in config file");
+            }else{
+                $receiver = $this->defaultReceiver;
+            }
+        }
+
         $this->receiver = $receiver;
         $this->message = $message;
 
@@ -22,8 +32,9 @@ class PLogSend
         return $this;
     }
 
-    public static function Send($receiver, $message){
-        $model = new self($receiver, $message);
+    public static function Send($message, $receiver=null){
+
+        $model = new self($message, $receiver);
         return $model->execute();
     }
     public function execute(){
@@ -65,6 +76,13 @@ class PLogSend
         }else{
             throw new \Exception("config file is corrupted");
         }
+
+        if(isset($config['default_receiver'])){
+            $this->defaultReceiver = $config['default_receiver'];
+        }else{
+            throw new \Exception("config file is corrupted");
+        }
+
     }
     private function apiUri(){
         return  self::API_ENDPOINT."?auth_username=".$this->username."&auth_password=".$this->password;

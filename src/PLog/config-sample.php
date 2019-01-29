@@ -8,4 +8,5 @@
 return [
     'username'=>'',
     'password'=>'',
+    'default_receiver'=>''
 ];
