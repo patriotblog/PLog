@@ -26,14 +26,30 @@ password: Your Inception password
 default_receiver: default Telegram group for sending logs to
  
  #### How to Use
- 
+ first add namespace
  ```php
- $result = PLogSend::Send('new record saved', 'eLogs');
+ use PLog\PLog;
+ ```
+ then:
+ ```php
+ $result = PLog::Send('new record saved', 'LogGroup');
  ```
  or if you set default_receiver:
  
  ```php
- $result = PLogSend::Send('new record saved');
+ $result = PLog::Send('new record saved');
  ```
+ for loging exceptions:
+ ```php
+  try{
+  
+    //do some risky staff ;)
+    
+  }catch(Exception $e){
+  
+    $result = PLog::Exception($e, 'ExceptionGroup');
+    
+  }
+  ```
  
 

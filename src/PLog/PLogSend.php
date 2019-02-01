@@ -34,19 +34,7 @@ class PLogSend
         return $this;
     }
 
-    /**
-     * @param $message string
-     * @param null|string $receiver
-     * @return bool
-     */
-    public static function Send($message, $receiver=null){
-
-        $model = new self($message, $receiver);
-        return $model->execute();
-    }
-
-
-    private function execute(){
+    public function execute(){
 
         $telegram = new PTelegramRequest();
 

@@ -8,9 +8,9 @@
 include dirname(__FILE__).'/../PLog/Autoloader.php';
 
 
-use PLog\PLogSend;
+use PLog\PLog;
 
-$model = PLogSend::Send('salam', 'eLogs');
+$model = PLog::Send('salam', 'eLogs');
 
 var_dump($model);
 ?>
