@@ -4,7 +4,7 @@ Rest-Full webservice for sending message to telegram groups or users throw Teleg
 ## Installation
 ### Using Composer
 ```sh
-composer require patriotblog/plog:dev-master
+composer require patriot/plog:dev-master
 ```
 then, require composer autoloader:
 ```sh
